@@ -23,8 +23,9 @@
                 </div>    
                 <div class="borderCountries">
                     <h3>Border Countries:</h3>
-                    <div class="border-wrapper">
-                        <Button v-for="border in borders" :key="border.code" :text="borde.name" class="btn" :destination="'country/' + border.code.toLowerCase()"> </Button>
+                    <div v-if="countryInfo.borders.length == 0" class="border-wrapper"><p>There are no borders.</p></div>
+                    <div v-else class="border-wrapper">                        
+                        <Button v-for="border in countryInfo.borders" :key="border" :text="border" class="btn" :destination="'country/' + border.toLowerCase()"> </Button>
                     </div>                    
                 </div>
             </div>                    
@@ -54,36 +55,6 @@ export default {
             borders:[]
         }
     },
-    // async fetch(){
-    //     const result = await fetch(
-    //         "https://restcountries.eu/rest/v2/alpha/" + this.slug
-    //     ).then(
-    //         res => res.json()
-    //     )
-    //     this.countryInfo = result;
-
-    //     result.borders.forEach(border => {
-    //         console.log(border);
-    //         const countryName = fetch(
-    //            "https://restcountries.eu/rest/v2/alpha/" + border
-    //         ).then(
-    //             res => res.json()
-    //         );
-    //         console.log("hello");
-    //         console.log("00", countryName.name);
-
-    //         this.borders.push(
-    //             {
-    //                 code: border, 
-    //                 name: countryName.name,
-    //             }
-    //         );            
-    //     });
-    //     console.log("11", this.borders);
-    //     console.log(this.countryInfo);
-    // },
-    
-
     methods: {
         printLanguages(languages){
             let text = "";
@@ -101,14 +72,6 @@ export default {
             text += currencies[currencies.length - 1].name;
             return text;
         },
-        async getCountryFullName(code){
-            const name = await fetch(
-                "https://restcountries.eu/rest/v2/alpha/" + code
-            ).then(
-                res => res.json().name
-            ) 
-            return "hello";           
-        },        
     },
    
     components: {
