@@ -37,5 +37,7 @@ export default {
 
   generate: {
     dir: "public"
-  }
+  },
+
+  target: "static"
 };
