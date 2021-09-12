@@ -17,6 +17,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
+  background-color: var(--background);
 }
 
 :root {
@@ -30,6 +31,16 @@ body {
   --elements: hsl(209, 23%, 22%);
   --background: hsl(207, 26%, 17%);
   --text: hsl(0, 0%, 100%);
+}
+
+a {
+  color: var(--text);
+  text-decoration: none; /* no underline */
+}
+
+main {
+  background-color: var(--background);
+  overflow: auto;
 }
 /* - Dark Blue (Dark Mode Elements): hsl(209, 23%, 22%)
 - Very Dark Blue (Dark Mode Background): hsl(207, 26%, 17%)
